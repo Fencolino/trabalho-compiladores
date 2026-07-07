@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>950</height>
+   </rect>
+  </property>
+
+  <property name="windowTitle">
+   <string>Compilador Univali</string>
+  </property>
+
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow { background-color: #f0f2f5; }
+    QLabel { font-size: 11pt; font-weight: bold; color: #333; }
+    QScrollArea { border: none; background-color: transparent; }
+    QWidget#scrollAreaWidgetContents { background-color: transparent; }
+   </string>
+  </property>
+
+  <widget class="QWidget" name="centralwidget">
+
+   <layout class="QVBoxLayout" name="outerLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1100</width>
+         <height>920</height>
+        </rect>
+       </property>
+
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="spacing">
+         <number>18</number>
+        </property>
+        <property name="leftMargin">
+         <number>30</number>
+        </property>
+        <property name="topMargin">
+         <number>25</number>
+        </property>
+        <property name="rightMargin">
+         <number>30</number>
+        </property>
+        <property name="bottomMargin">
+         <number>25</number>
+        </property>
+
+        <!-- ENTRADA e SAIDA lado a lado -->
+        <item>
+         <layout class="QHBoxLayout" name="layoutEntradaSaida">
+          <property name="spacing">
+           <number>20</number>
+          </property>
+
+          <item>
+           <layout class="QVBoxLayout" name="layoutEntrada">
+            <property name="spacing">
+             <number>8</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="labelEntrada">
+              <property name="text">
+               <string>Entrada:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="CampoEntrada">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>230</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+                QTextEdit {
+                    border: 1px solid #ccc;
+                    font-family: 'Consolas';
+                    font-size: 13pt;
+                    color: #000000;
+                    background-color: #ffffff;
+                    padding: 8px;
+                    border-radius: 4px;
+                }
+               </string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+
+          <item>
+           <layout class="QVBoxLayout" name="layoutSaida">
+            <property name="spacing">
+             <number>8</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="labelSaida">
+              <property name="text">
+               <string>Saída:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="CampoSaida">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>230</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+                QTextEdit {
+                    background-color: #f9f9f9;
+                    border: 1px solid #ccc;
+                    font-family: 'Consolas';
+                    font-size: 13pt;
+                    color: #000000;
+                    padding: 8px;
+                    border-radius: 4px;
+                }
+               </string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+
+         </layout>
+        </item>
+
+        <!-- ASSEMBLY -->
+        <item>
+         <widget class="QLabel" name="labelAssembly">
+          <property name="text">
+           <string>Assembly BIP:</string>
+          </property>
+         </widget>
+        </item>
+
+        <item>
+         <widget class="QTextEdit" name="CampoAssembly">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+            QTextEdit {
+                background-color: #f4f4f4;
+                border: 1px solid #ccc;
+                font-family: 'Consolas';
+                font-size: 12pt;
+                color: #000000;
+                padding: 8px;
+                border-radius: 4px;
+            }
+           </string>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+
+        <!-- TABELA -->
+        <item>
+         <widget class="QLabel" name="labelTabela">
+          <property name="text">
+           <string>Tabela de Símbolos:</string>
+          </property>
+         </widget>
+        </item>
+
+        <item>
+         <widget class="QTableWidget" name="tabelaSimbolos">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+            QTableWidget {
+                background-color: #ffffff;
+                border: 1px solid #ccc;
+                font-size: 10pt;
+                color: #000000;
+                border-radius: 4px;
+            }
+            QHeaderView::section {
+                background-color: #e8e8e8;
+                font-weight: bold;
+                padding: 6px;
+                border: none;
+                border-bottom: 1px solid #ccc;
+            }
+           </string>
+          </property>
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>7</number>
+          </property>
+          <column>
+           <property name="text">
+            <string>Nome</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tipo</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Categoria</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Escopo</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Inicializado</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Usado</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Nº Parâmetro</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+
+        <!-- BOTAO -->
+        <item>
+         <widget class="QPushButton" name="BotaoCompilar">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>55</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+            QPushButton {
+                background-color: #28a745;
+                color: white;
+                font-size: 12pt;
+                font-weight: bold;
+                border-radius: 6px;
+                padding: 8px;
+            }
+            QPushButton:hover {
+                background-color: #218838;
+            }
+            QPushButton:pressed {
+                background-color: #1a6d2e;
+            }
+           </string>
+          </property>
+          <property name="text">
+           <string>COMPILAR</string>
+          </property>
+         </widget>
+        </item>
+
+       </layout>
+      </widget>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1100</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+
+  <widget class="QStatusBar" name="statusbar"/>
+
+ </widget>
+
+ <resources/>
+ <connections/>
+
+</ui>
